@@ -1,0 +1,278 @@
+{
+  "axes": [],
+  "data": [
+    {
+      "name": "table",
+      "values": [
+        {
+          "x": "Alabama",
+          "y": 6.366120218579235
+        },
+        {
+          "x": "Alaska",
+          "y": 3.3686274509803917
+        },
+        {
+          "x": "Arizona",
+          "y": 7.254143646408839
+        },
+        {
+          "x": "Arkansas",
+          "y": 6.377049180327869
+        },
+        {
+          "x": "California",
+          "y": 5.07125890736342
+        },
+        {
+          "x": "Colorado",
+          "y": 9.012345679012345
+        },
+        {
+          "x": "Florida",
+          "y": 6.564207650273224
+        },
+        {
+          "x": "Georgia",
+          "y": 7.557377049180328
+        },
+        {
+          "x": "Idaho",
+          "y": 7.586776859504132
+        },
+        {
+          "x": "Illinois",
+          "y": 7.909836065573771
+        },
+        {
+          "x": "Indiana",
+          "y": 8.508196721311476
+        },
+        {
+          "x": "Iowa",
+          "y": 10.5
+        },
+        {
+          "x": "Kansas",
+          "y": 9.88477366255144
+        },
+        {
+          "x": "Kentucky",
+          "y": 5.967213114754099
+        },
+        {
+          "x": "Louisiana",
+          "y": 5.76775956284153
+        },
+        {
+          "x": "Maine",
+          "y": 7.516393442622951
+        },
+        {
+          "x": "Massachusetts",
+          "y": 9.688524590163935
+        },
+        {
+          "x": "Michigan",
+          "y": 7.032786885245901
+        },
+        {
+          "x": "Minnesota",
+          "y": 7.0
+        },
+        {
+          "x": "Mississippi",
+          "y": 5.967213114754099
+        },
+        {
+          "x": "Missouri",
+          "y": 8.431693989071038
+        },
+        {
+          "x": "Montana",
+          "y": 7.913223140495868
+        },
+        {
+          "x": "Nebraska",
+          "y": 11.005494505494505
+        },
+        {
+          "x": "Nevada",
+          "y": 10.016759776536313
+        },
+        {
+          "x": "New Jersey",
+          "y": 5.311475409836065
+        },
+        {
+          "x": "New Mexico",
+          "y": 9.816666666666666
+        },
+        {
+          "x": "New York",
+          "y": 6.649590163934426
+        },
+        {
+          "x": "North Carolina",
+          "y": 7.098360655737705
+        },
+        {
+          "x": "North Dakota",
+          "y": 11.248633879781421
+        },
+        {
+          "x": "Ohio",
+          "y": 7.188524590163935
+        },
+        {
+          "x": "Oklahoma",
+          "y": 11.114754098360656
+        },
+        {
+          "x": "Oregon",
+          "y": 5.4
+        },
+        {
+          "x": "Pennsylvania",
+          "y": 5.950819672131147
+        },
+        {
+          "x": "Puerto Rico",
+          "y": 6.950819672131147
+        },
+        {
+          "x": "South Carolina",
+          "y": 5.759562841530054
+        },
+        {
+          "x": "South Dakota",
+          "y": 12.095628415300547
+        },
+        {
+          "x": "Tennessee",
+          "y": 5.595628415300546
+        },
+        {
+          "x": "Texas",
+          "y": 10.64696223316913
+        },
+        {
+          "x": "Utah",
+          "y": 7.786885245901639
+        },
+        {
+          "x": "Vermont",
+          "y": 6.934426229508197
+        },
+        {
+          "x": "Virginia",
+          "y": 6.021857923497268
+        },
+        {
+          "x": "Washington",
+          "y": 6.333333333333333
+        },
+        {
+          "x": "West Virginia",
+          "y": 2.4098360655737703
+        },
+        {
+          "x": "Wisconsin",
+          "y": 9.987704918032787
+        },
+        {
+          "x": "Wyoming",
+          "y": 10.0
+        }
+      ]
+    },
+    {
+      "format": {
+        "feature": "us_states.geo",
+        "type": "topojson"
+      },
+      "name": "states",
+      "transform": [
+        {
+          "as": "value",
+          "default": "noval",
+          "key": "data.properties.NAME",
+          "type": "zip",
+          "with": "table",
+          "withKey": "data.x"
+        },
+        {
+          "test": "d.path!='noval' && d.value!='noval'",
+          "type": "filter"
+        },
+        {
+          "projection": "albersUsa",
+          "scale": 1000,
+          "translate": [
+            480.0,
+            250.0
+          ],
+          "type": "geopath",
+          "value": "data"
+        }
+      ],
+      "url": "us_states.topo.json"
+    }
+  ],
+  "height": 500,
+  "legends": [
+    {
+      "fill": "color",
+      "offset": 0,
+      "properties": {},
+      "title": "Average Monthly Wind Speed (mph)"
+    }
+  ],
+  "marks": [
+    {
+      "from": {
+        "data": "states"
+      },
+      "properties": {
+        "enter": {
+          "path": {
+            "field": "path"
+          },
+          "stroke": {
+            "value": "#000000"
+          }
+        },
+        "update": {
+          "fill": {
+            "field": "value.data.y",
+            "scale": "color"
+          }
+        }
+      },
+      "type": "path"
+    }
+  ],
+  "padding": "auto",
+  "scales": [
+    {
+      "domain": [
+        2.4098360655737703,
+        11.092902179787426
+      ],
+      "name": "color",
+      "range": [
+        "#ffffd9",
+        "#edf8b1",
+        "#c7e9b4",
+        "#7fcdbb",
+        "#41b6c4",
+        "#1d91c0",
+        "#225ea8",
+        "#253494",
+        "#081d58"
+      ],
+      "type": "quantize"
+    }
+  ],
+  "width": 960
+}

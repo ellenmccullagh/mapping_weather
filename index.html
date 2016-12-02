@@ -1,0 +1,12 @@
+<html>
+<script src="http://d3js.org/d3.v3.min.js"></script><script src="http://trifacta.github.io/vega/vega.js"></script>
+Vega tutorial
+<h1 id="title">Let's Try Vega</h1>
+<div id="viz"></div>
+<div id="text"></div>
+<script type="text/javascript">// <![CDATA[
+	function parse(spec) {
+  		vg.parse.spec(spec, function(chart) { chart({el:"#viz", renderer: "svg"}).update(); });
+	}
+	parse("WindSpeed.json");
+// ]]></script></html>
